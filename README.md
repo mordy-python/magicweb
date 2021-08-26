@@ -43,7 +43,18 @@ To run our app we need to use the `app.run()` function
 
 ```python
 ...
-app.run(app)
+run(app)
 # to run with a different host/port just add those arguments
-# app.run(app, host='0.0.0.0', port=5000)
+# run(app, host='0.0.0.0', port=5000)
+```
+
+We can also create routes with parameters
+
+```python
+import magicweb
+app = magicweb.App()
+
+@app.route('/{name}')
+def index(request, response, name):
+  response.text = "hello " + name
 ```
