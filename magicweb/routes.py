@@ -7,7 +7,7 @@ class API:
     def __init__(self, frontend_folder="html"):
         self.routes = {}
         self.html = frontend_folder
-    def run(self, host='0.0.0.0, port=5000):
+    def run(self, host='0.0.0.0', port=5000):
       from waitress import serve
       serve(self, host=host, port=port)
     def render(self, html_file, response):
