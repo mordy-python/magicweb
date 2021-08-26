@@ -2,14 +2,13 @@ from parse import parse
 import os
 from webob import Request, Response
 
-
+def run(app, host='0.0.0.0', port=5000):
+      from waitress import serve
+      serve(app, host=host, port=port)
 class App:
     def __init__(self, frontend_folder="html"):
         self.routes = {}
         self.html = frontend_folder
-    def run(app, host='0.0.0.0', port=5000):
-      from waitress import serve
-      serve(app, host=host, port=port)
     def render(self, html_file, response):
       with open(os.path.join(self.html, html_file)) as html:
         content = html.read()
