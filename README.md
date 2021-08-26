@@ -15,3 +15,10 @@ git clone https://github.com/mordy-python/magicweb
 cd magicweb
 python setup.py install
 ```
+### Run a basic app
+To create a simple app we need to import Magicweb and create an app instance
+
+```python
+import magicweb
+app = magicweb.App()
+```
