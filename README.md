@@ -22,3 +22,28 @@ To create a simple app we need to import Magicweb and create an app instance
 import magicweb
 app = magicweb.App()
 ```
+Once our app is instantiated we can add routes
+
+```python
+```python
+import magicweb
+app = magicweb.App()
+
+@app.route('/')
+def index(request, response):
+  response.text = "Hello"
+@app.route('/rendered')
+def rendered(request, response):
+  app.render('index.html')
+```
+
+We created two routes, one that returns hello world, and one that renders an html page. All html pages should be in a directory named html, although this can be overrdden when instantiting the App class.
+
+To run our app we need to use the `app.run()` function
+
+```python
+...
+app.run(app)
+# to run with a different host/port just add those arguments
+# app.run(app, host='0.0.0.0', port=5000)
+```
