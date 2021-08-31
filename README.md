@@ -1,8 +1,9 @@
 # Magicweb
 
-Magicweb is a simple web framework that is still under developement. It currently supports route parameters but no html templating.
+Magicweb is a simple web framework that is still under developement. It currently supports route parameters and html templating but not template ineritance.
 
 ## Usage
+
 ### Installation
 
 To install Magicweb you can run
@@ -10,24 +11,27 @@ To install Magicweb you can run
 
 To install Magicweb from source run
 
-```
+```shell
 git clone https://github.com/mordy-python/magicweb
 cd magicweb
 python setup.py install
 ```
+
 ### Run a basic app
+
 To create a simple app we need to import Magicweb and create an app instance
+we need to add the \_\_file\_\_ variable to the app instance.
 
 ```python
 import magicweb
-app = magicweb.App()
+app = magicweb.App(__file__)
 ```
+
 Once our app is instantiated we can add routes
 
 ```python
-```python
 import magicweb
-app = magicweb.App()
+app = magicweb.App(__file__)
 
 @app.route('/')
 def index(request, response):
@@ -52,7 +56,7 @@ We can also create routes with parameters
 
 ```python
 import magicweb
-app = magicweb.App()
+app = magicweb.App(__file__)
 
 @app.route('/{name}')
 def index(request, response, name):
