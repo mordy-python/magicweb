@@ -6,21 +6,29 @@ from webob import Request, Response
 
 def run(app, host='0.0.0.0', port=5000):
 	from waitress import serve
-	print(f"Starting server @ {host}:{port}")
+	print(f"Starting server @ http://{host}:{port}/")
 	serve(app, host=host, port=port)
 	print("Killing server")
 
 
 class App:
-	def __init__(self, frontend_folder="templates"):
+	def __init__(self, file, frontend_folder="templates"):
+		folder = file.split('\\')[:-1]
+		folder = '/'.join(folder)
+		os.chdir(folder)
 		self.routes = {}
 		self.html = frontend_folder
 	def render(self, html_file, response, **kwargs):
-		with open(os.path.join(self.html, html_file)) as html:
-			unparsed = html.read()
-			temp = Template(unparsed)
-			content = temp.render(**kwargs)
-		response.status_code = 200
+		try:
+			with open(os.path.join(self.html, html_file)) as html:
+				unparsed = html.read()
+				temp = Template(unparsed)
+				content = temp.render(**kwargs)
+			response.status_code = 200
+		except FileNotFoundError:
+			content = f'''<h1 style="text-align: center;">404</h1>
+			<h3 style="text-align: center;">Template {html_file} not found</h3>'''
+			response.status_code = 404
 		response.text = content
 
 	def __call__(self, environ, start_response):
