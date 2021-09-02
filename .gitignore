@@ -3,3 +3,4 @@ Magicweb.egg-info
 env/
 build
 testing
+magicweb/__pycache__/
