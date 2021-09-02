@@ -1,0 +1,9 @@
+[submodule "docs/themes/geekdoc"]
+	path = docs/themes/geekdoc
+	url = https://github.com/thegeeklab/hugo-geekdoc
+[submodule "docs/themes/ace"]
+	path = docs/themes/ace
+	url = https://github.com/vantagedesign/ace-documentation
+[submodule "docs/themes/hugo-theme-learn"]
+	path = docs/themes/hugo-theme-learn
+	url = https://github.com/matcornic/hugo-theme-learn.git
