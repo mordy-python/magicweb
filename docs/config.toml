@@ -1,0 +1,8 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Magicweb Documentation"
+theme = "hugo-theme-learn"
+
+[params]
+    home = ["HTML", "RSS", "JSON"]
+    themeVariant = "green"
