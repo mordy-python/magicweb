@@ -16,7 +16,10 @@ class App:
 		file = file.replace('\\', '/')
 		folder = file.split('/')[:-1]
 		folder = '/'.join(folder)
-		os.chdir(folder)
+		if frontend_folder in os.listdir('.'):
+			pass
+		else:
+			os.chdir(folder)
 		self.routes = {}
 		self.html = frontend_folder
 	def render(self, html_file, response, **kwargs):
