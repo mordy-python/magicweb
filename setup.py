@@ -14,7 +14,7 @@ setup_args = dict(
     author='Israel Waldner',
     author_email='imky171@gmail.com',
     keywords=['Web', 'Web framework', 'framework'],
-    url='https://replit.com/@IsraelW/webframeworkpypi',
+    url='https://github.com/mordy-python/magicweb',
     download_url='https://pypi.org/project/magicweb/'
 )
 
