@@ -82,6 +82,41 @@
         </li>
         </ul>
     </li>
+    <li data-nav-id="/newapp/" class="nav-item my-1
+        ">
+        
+        <a class="nav-link p-0" href="/newapp/"><h6><b>2. </b>Creating a Magicweb application</h6></a>
+    </li>
+    <li data-nav-id="/routes-rendering/" class="nav-item my-1 haschildren
+        ">
+        
+        <a class="nav-link p-0" href="/routes-rendering/"><h6><b>3. </b>Creating Routes</h6></a>
+        <ul class="list-unstyled ml-2">
+        <li data-nav-id="/routes-rendering/creating-routes/" class="nav-item my-1">
+                
+                 <a href="/routes-rendering/creating-routes/" class="nav-link p-0">
+                    Creating Routes
+                </a>
+        </li>
+        <li data-nav-id="/routes-rendering/render/" class="nav-item my-1">
+                
+                 <a href="/routes-rendering/render/" class="nav-link p-0">
+                    Render a Template
+                </a>
+        </li>
+        <li data-nav-id="/routes-rendering/renderhtml/" class="nav-item my-1">
+                
+                 <a href="/routes-rendering/renderhtml/" class="nav-link p-0">
+                    Render Variables in HTML
+                </a>
+        </li>
+        </ul>
+    </li>
+    <li data-nav-id="/contributing/" class="nav-item my-1
+        ">
+        
+        <a class="nav-link p-0" href="/contributing/"><h6>How to Contribute</h6></a>
+    </li>
         </ul>
     </div>
 </nav>
@@ -93,6 +128,7 @@
   <ul>
     <li><a href="#installation">Installation</a>
       <ul>
+        <li><a href="#create-a-virtual-environment">Create a virtual environment</a></li>
         <li><a href="#install-with-pip">Install with pip</a></li>
         <li><a href="#install-from-source">Install from source</a></li>
       </ul>
@@ -107,9 +143,11 @@
 <h1>Installation</h1>
 
 <h2 id="installation">Installation</h2>
+<h3 id="create-a-virtual-environment">Create a virtual environment</h3>
+<p>To install Magicweb, you need to have python and pip installed.</p>
+<p>First create a virtual environment: <code>python -m venv venv</code>. Then activate it: <code>source venv/bin/activate</code> on Mac and Linux, or <code>venv\Scripts\activate</code> on Windows.</p>
 <h3 id="install-with-pip">Install with pip</h3>
-<p>To install Magicweb, you need to have python and pip installed.
-To install with pip you can use the following command:</p>
+<p>To install with pip you can use the following command:</p>
 <p><code>pip install magicweb</code> or <code>python -m pip install magicweb</code>.</p>
 <p>If neither of those work, try: <code>pip3 install magicweb</code> or <code>python3 -m pip install magicweb</code>.</p>
 <h3 id="install-from-source">Install from source</h3>

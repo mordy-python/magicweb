@@ -13,11 +13,11 @@
       <pubDate>Thu, 02 Sep 2021 11:41:28 -0400</pubDate>
       
       <guid>https://magicweb-docs.web.app/getting-started/installation/</guid>
-      <description>Installation Install with pip To install Magicweb, you need to have python and pip installed. To install with pip you can use the following command:
+      <description>Installation Create a virtual environment To install Magicweb, you need to have python and pip installed.
+First create a virtual environment: python -m venv venv. Then activate it: source venv/bin/activate on Mac and Linux, or venv\Scripts\activate on Windows.
+Install with pip To install with pip you can use the following command:
 pip install magicweb or python -m pip install magicweb.
-If neither of those work, try: pip3 install magicweb or python3 -m pip install magicweb.
-Install from source To install from source, clone the repo from github and install it with setup.py like so:
-git clone https://github.</description>
+If neither of those work, try: pip3 install magicweb or python3 -m pip install magicweb.</description>
     </item>
     
     <item>

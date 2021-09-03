@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="alternate" type="application/rss+xml" href="https://magicweb-docs.web.app/categories/index.xml" title="Magicweb Documentation" />
-    <link rel="canonical" href="https://magicweb-docs.web.app/categories/">
+    <link rel="alternate" type="application/rss+xml" href="https://magicweb-docs.web.app/newapp/index.xml" title="Magicweb Documentation" />
+    <link rel="canonical" href="https://magicweb-docs.web.app/newapp/">
 
     <title>
         
-        Categories | Magicweb Documentation
+        Creating a Magicweb application | Magicweb Documentation
         
     </title>
 
@@ -84,7 +84,7 @@
         </li>
         </ul>
     </li>
-    <li data-nav-id="/newapp/" class="nav-item my-1
+    <li data-nav-id="/newapp/" class="nav-item my-1 parent active
         ">
         
         <a class="nav-link p-0" href="/newapp/"><h6><b>2. </b>Creating a Magicweb application</h6></a>
@@ -126,13 +126,54 @@
 
 </div>
                 <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
-	
+	<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#create-a-virtualenv-and-install-magicweb">Create a virtualenv and install Magicweb</a></li>
+        <li><a href="#create-a-new-magicweb-application">Create a new Magicweb application</a></li>
+        <li><a href="#run-the-application">Run the application</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 </div>
                 <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
                 
 
-<h1>Categories</h1>
+<h1>Creating a Magicweb application</h1>
+
+<h3 id="create-a-virtualenv-and-install-magicweb">Create a virtualenv and install Magicweb</h3>
+<p>Before installing, create a python vitual environment with the following command: <code>python -m venv venv</code>.</p>
+<p>Activate the virtual environment with <code>source venv/bin/activate</code> on Mac and Linux, or <code>venv\Scripts\activate</code> on Windows.</p>
+<p>Now let&rsquo;s install the magicweb package with the following command: <code>pip install magicweb</code> (See <a href="getting-started/installation">here</a> for more details).</p>
+<h3 id="create-a-new-magicweb-application">Create a new Magicweb application</h3>
+<p>Now lets import App from magicweb and create a new application.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> magicweb <span style="color:#f92672">import</span> App
+app <span style="color:#f92672">=</span> App(__file__)
+</code></pre></div><p>What we did here is create a new App object. The first argument is the path to the current file. This is used to find the templates and static files.</p>
+<p><code>App</code> also has an optional <code>template_folder</code> argument. If you want to use a different template folder, you can set it here. By default, it is set to <code>templates</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+app <span style="color:#f92672">=</span> App(__file__, template_folder<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;templates2&#39;</span>)
+</code></pre></div><h3 id="run-the-application">Run the application</h3>
+<p>To run the application, we need to call the <code>run</code> method and supply the app name as a parameter.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
+app<span style="color:#f92672">.</span>run(app)
+</code></pre></div>
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-info rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-info">
+            <h3>Note</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            We have not created any routes yet, so the application will not do anything.
+        </div>
+    </div>
+</div>
 
 
 
@@ -145,7 +186,8 @@
 
     <h4 class="text-white text-center">Read more</h4>
 
-    <div class="d-flex justify-content-center"><a class="p-1 ml-3 d-inline-block text-white text-right" href="/getting-started/" title="Getting Started">Getting Started<i class="fas fa-chevron-right p-1"></i></a>
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/getting-started/basicapp/" title="Create a basic app"><i class="fas fa-chevron-left p-1"></i>Create a basic app</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/routes-rendering/" title="Creating Routes">Creating Routes<i class="fas fa-chevron-right p-1"></i></a>
     </div>
 </div>
 
