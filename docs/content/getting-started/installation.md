@@ -7,9 +7,14 @@ draft: false
 
 ## Installation
 
-### Install with pip
+### Create a virtual environment
 
 To install Magicweb, you need to have python and pip installed.
+
+First create a virtual environment: `python -m venv venv`. Then activate it: `source venv/bin/activate` on Mac and Linux, or `venv\Scripts\activate` on Windows.
+
+### Install with pip
+
 To install with pip you can use the following command:
 
 `pip install magicweb` or `python -m pip install magicweb`.
