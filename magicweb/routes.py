@@ -13,7 +13,8 @@ def run(app, host='0.0.0.0', port=5000):
 
 class App:
 	def __init__(self, file, frontend_folder="templates"):
-		folder = file.split('\\')[:-1]
+		file = file.replace('\\', '/')
+		folder = file.split('/')[:-1]
 		folder = '/'.join(folder)
 		os.chdir(folder)
 		self.routes = {}
