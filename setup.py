@@ -5,7 +5,7 @@ with open('README.md') as readme_file:
 
 setup_args = dict(
     name='Magicweb',
-    version='1.0.2',
+    version='1.0.3',
     description='A simple web framework',
     long_description_content_type="text/markdown",
     long_description=README,
