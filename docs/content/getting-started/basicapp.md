@@ -31,10 +31,6 @@ def template(request, response):
     app.render('template.html', response)
 ```
 
-{{% notice note %}}
-Find more about template rendering in the [Template Guide](/templates).
-{{% /notice %}}
-
 Once we have our routes, we can start the server.
 
 ```python

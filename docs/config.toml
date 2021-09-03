@@ -1,8 +1,9 @@
-baseURL = "http://example.org/"
+baseURL = "https://magicweb-docs.web.app/"
 languageCode = "en-us"
 title = "Magicweb Documentation"
-theme = "hugo-theme-learn"
+theme = "ace"
 
-[params]
-    home = ["HTML", "RSS", "JSON"]
-    themeVariant = "green"
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i>"
+url = "https://github.com/mordy-python/magicweb"
+weight = 10

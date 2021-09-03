@@ -4,12 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="alternate" type="application/rss+xml" href="https://magicweb-docs.web.app/categories/index.xml" title="Magicweb Documentation" />
-    <link rel="canonical" href="https://magicweb-docs.web.app/categories/">
+    <link rel="canonical" href="https://magicweb-docs.web.app/getting-started/basicapp/">
 
     <title>
         
-        Categories | Magicweb Documentation
+        Create a basic app | Magicweb Documentation
         
     </title>
 
@@ -50,9 +49,6 @@
               </ul>
             </div>
     </div>
-    <div class="feed-icons">
-            <a href=".Permalink"><img src="/img/feed-icon.svg" alt="RSS feed" /></a>
-        </div>
     </nav>
 <div class="container-fluid">
             <div class="row">
@@ -67,7 +63,7 @@
                 <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
             </form>
          <ul class="navbar-nav flex-column pt-3">
-    <li data-nav-id="/getting-started/" class="nav-item my-1 haschildren
+    <li data-nav-id="/getting-started/" class="nav-item my-1 parent haschildren
         ">
         
         <a class="nav-link p-0" href="/getting-started/"><h6><b>1. </b>Getting Started</h6></a>
@@ -78,7 +74,7 @@
                     Installation
                 </a>
         </li>
-        <li data-nav-id="/getting-started/basicapp/" class="nav-item my-1">
+        <li data-nav-id="/getting-started/basicapp/" class="nav-item my-1 active">
                 
                  <a href="/getting-started/basicapp/" class="nav-link p-0">
                     Create a basic app
@@ -93,15 +89,32 @@
 
 </div>
                 <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
-	
+	<nav id="TableOfContents"></nav>
 </div>
 </div>
                 <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
                 
 
-<h1>Categories</h1>
+<h1>Create a basic app</h1>
 
+<p>Once we have Magicweb installed, we can create an app.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> magicweb <span style="color:#f92672">import</span> App
 
+app <span style="color:#f92672">=</span> App(__file__)
+</code></pre></div><p>We need to put the <code>__file__</code> argument in the constructor so that Magicweb knows where to look for templates. Once we have an app, we can add routes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@app</span><span style="color:#f92672">.</span>route(<span style="color:#e6db74">&#34;/&#34;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>(request, response):
+    response<span style="color:#f92672">.</span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span>
+</code></pre></div><p>We created a route that returns the text &ldquo;Hello World!&rdquo;. It is important to note that the <code>request</code> and <code>response</code> arguments are required. The <code>request</code> argument is the request object that is passed to the route. The <code>response</code> argument is the response object that is returned by the route.</p>
+<p>We can also create a route that returns a template. The templates are stored in the <code>templates</code> directory.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@app</span><span style="color:#f92672">.</span>route(<span style="color:#e6db74">&#34;/template&#34;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">template</span>(request, response):
+    app<span style="color:#f92672">.</span>render(<span style="color:#e6db74">&#39;template.html&#39;</span>, response)
+</code></pre></div><p>Once we have our routes, we can start the server.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">run(app)
+</code></pre></div><p>We can also specify the host and port that the server run on with the keyword arguments <code>host</code> and <code>port</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">run(app, host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.0.0.0&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span>)
+</code></pre></div>
 
     
 
@@ -112,7 +125,8 @@
 
     <h4 class="text-white text-center">Read more</h4>
 
-    <div class="d-flex justify-content-center"><a class="p-1 ml-3 d-inline-block text-white text-right" href="/getting-started/" title="Getting Started">Getting Started<i class="fas fa-chevron-right p-1"></i></a>
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/getting-started/installation/" title="Installation"><i class="fas fa-chevron-left p-1"></i>Installation</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/getting-started/installation/" title="Installation">Installation<i class="fas fa-chevron-right p-1"></i></a>
     </div>
 </div>
 
