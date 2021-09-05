@@ -13,9 +13,9 @@ def run(app, host='0.0.0.0', port=5000):
 
 class App:
 	def __init__(self, file, frontend_folder="templates"):
-		file = file.replace('\\', '/')
-		folder = file.split('/')[:-1]
-		folder = '/'.join(folder)
+		# file = file.replace('\\', '/')
+		folder = os.path.dirname(file)
+		print(folder)
 		if frontend_folder in os.listdir('.'):
 			pass
 		else:
