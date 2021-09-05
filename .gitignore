@@ -1,6 +1,7 @@
 dist/
 Magicweb.egg-info
 env/
+wslenv/
 build
 testing
 magicweb/__pycache__/
