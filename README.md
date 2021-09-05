@@ -1,4 +1,4 @@
-# Magicweb <img src='withletters.png' align='center' width='200' height='200'/>
+# Magicweb <img src='logo.png' align='center' width='200' height='200'/>
 Magicweb is a simple web framework that is still under developement. It currently supports route parameters and html templating but not template ineritance.
 
 ## Usage
