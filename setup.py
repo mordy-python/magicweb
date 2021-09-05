@@ -18,6 +18,6 @@ setup_args = dict(
     download_url='https://pypi.org/project/magicweb/'
 )
 
-install_requires = ['parse', 'webob', 'waitress', 'jijna2']
+install_requires = ['parse', 'webob', 'waitress', 'jinja2']
 if __name__ == '__main__':
     setup(**setup_args, install_requires=install_requires)

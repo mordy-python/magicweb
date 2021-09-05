@@ -1,6 +1,6 @@
 from parse import parse
-from jinja2 import Template
-import os
+from jinja2 import Template, Environment, FileSystemLoader
+import os, sys
 from webob import Request, Response
 
 
@@ -15,19 +15,17 @@ class App:
 	def __init__(self, file, frontend_folder="templates"):
 		# file = file.replace('\\', '/')
 		folder = os.path.dirname(file)
-		print(folder)
 		if frontend_folder in os.listdir('.'):
 			pass
 		else:
 			os.chdir(folder)
 		self.routes = {}
 		self.html = frontend_folder
+		self.env = Environment(loader=FileSystemLoader(self.html))
 	def render(self, html_file, response, **kwargs):
 		try:
-			with open(os.path.join(self.html, html_file)) as html:
-				unparsed = html.read()
-				temp = Template(unparsed)
-				content = temp.render(**kwargs)
+			template = self.env.get_template(html_file)
+			content = template.render(**kwargs)
 			response.status_code = 200
 		except FileNotFoundError:
 			content = f'''<h1 style="text-align: center;">404</h1>
