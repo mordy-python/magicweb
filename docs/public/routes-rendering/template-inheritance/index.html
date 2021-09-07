@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="canonical" href="https://magicweb-docs.web.app/routes-rendering/creating-routes/">
+    <link rel="canonical" href="https://magicweb-docs.web.app/routes-rendering/template-inheritance/">
 
     <title>
         
-        Creating Routes | Magicweb Documentation
+        Template Inheritance | Magicweb Documentation
         
     </title>
 
@@ -92,7 +92,7 @@
         
         <a class="nav-link p-0" href="/routes-rendering/"><h6><b>3. </b>Creating Routes</h6></a>
         <ul class="list-unstyled ml-2">
-        <li data-nav-id="/routes-rendering/creating-routes/" class="nav-item my-1 active">
+        <li data-nav-id="/routes-rendering/creating-routes/" class="nav-item my-1">
                 
                  <a href="/routes-rendering/creating-routes/" class="nav-link p-0">
                     Creating Routes
@@ -110,7 +110,7 @@
                     Render Variables in HTML
                 </a>
         </li>
-        <li data-nav-id="/routes-rendering/template-inheritance/" class="nav-item my-1">
+        <li data-nav-id="/routes-rendering/template-inheritance/" class="nav-item my-1 active">
                 
                  <a href="/routes-rendering/template-inheritance/" class="nav-link p-0">
                     Template Inheritance
@@ -130,56 +130,44 @@
 
 </div>
                 <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
-	<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#routes-with-parameters">Routes with parameters</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+	<nav id="TableOfContents"></nav>
 </div>
 </div>
                 <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
                 
 
-<h1>Creating Routes</h1>
+<h1>Template Inheritance</h1>
 
-<p>Lets start by creating the same basic app as before.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> magicweb <span style="color:#f92672">import</span> App, run
+<p>In the previous section, we saw how we can render a template with variables and even use loops, and if statements.
+One thing that makes templating more powerful is the ability to inherit from other templates. This is done by using the <code>{% extends 'base.html' %}</code> tag. This tag tells the template engine to use the template <code>base.html</code> as a base template, and then render the current template with the variables and loops from the base template.</p>
+<p>Lets see an example:</p>
+<p><strong>base.html</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;{% block title %}{% endblock %}&lt;/<span style="color:#f92672">title</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+    {% block content %}{% endblock %}
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><p>You can see that instead of defining the title, and the content, we have defined a block called <code>title</code> and <code>content</code>. In a temaplate like <code>index.html</code> we can now use the <code>{% block title %}</code> and <code>{% block content %}</code> tags to define the title and the content.</p>
+<p><strong>index.html</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{% extends &#39;base.html&#39; %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+    &lt;<span style="color:#f92672">h1</span>&gt;My Blog&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">ul</span>&gt;
+        {% for post in posts %}
+        &lt;<span style="color:#f92672">li</span>&gt;
+            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/blog/{{ post.id }}&#34;</span>&gt;{{ post.title }}&lt;/<span style="color:#f92672">a</span>&gt;
+        &lt;/<span style="color:#f92672">li</span>&gt;
+        {% endfor %}
+    &lt;/<span style="color:#f92672">ul</span>&gt;
+{% endblock %}
+</code></pre></div><p>This didn&rsquo;t look like much, but it&rsquo;s actually quite powerful, if we had a bootstrap nabar, we just saved ourselves a lot of work. We can now use the <code>{% block title %}</code> and <code>{% block content %}</code> tags to define the title and the content. We can also use the <code>{% for post in posts %}</code> tag to loop over all the posts and render them.</p>
 
-app <span style="color:#f92672">=</span> App(__file__)
-</code></pre></div><p>Now we can create a route.</p>
-<p>A route is composed of a decorator and a function.
-The decorator is used to define the route&rsquo;s path and the function is used to define the route&rsquo;s behavior.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
-<span style="color:#a6e22e">@app</span><span style="color:#f92672">.</span>route(<span style="color:#e6db74">&#34;/&#34;</span>)
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>(request, response):
-    response<span style="color:#f92672">.</span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span>
-</code></pre></div><p>What this does is it defines the route&rsquo;s path as <code>/</code> and when the route is called, it will call the function <code>index</code>. The function will receive the request and response objects as arguments and it will return &ldquo;Hello World&rdquo; in the reponse.</p>
-
-
-<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-info rounded" style="border-width:4px !important;">
-    <div class="wrap border border-left-0 rounded">
-        
-        <div class="card-header border-0 bg-white pl-3 text-info">
-            <h3>Note</h3>
-        </div>
-        
-        <div class="card-body pt-1">
-            All functions MUST accept at least two arguments: the <code>request</code> and the <code>response</code>.
-        </div>
-    </div>
-</div>
-
-<h3 id="routes-with-parameters">Routes with parameters</h3>
-<p>Magicweb supports routes with parameters. The syntax is the same as before, but now the path is defined as <code>/hello/{name}</code>. And the function will receive the <code>name</code> parameter as an argument.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">...</span>
-<span style="color:#a6e22e">@app</span><span style="color:#f92672">.</span>route(<span style="color:#e6db74">&#34;/hello/</span><span style="color:#e6db74">{name}</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(request, response, name):
-    response<span style="color:#f92672">.</span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div>
 
     
 
@@ -190,8 +178,8 @@ The decorator is used to define the route&rsquo;s path and the function is used 
 
     <h4 class="text-white text-center">Read more</h4>
 
-    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/routes-rendering/" title="Creating Routes"><i class="fas fa-chevron-left p-1"></i>Creating Routes</a>
-        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/routes-rendering/render/" title="Render a Template">Render a Template<i class="fas fa-chevron-right p-1"></i></a>
+    <div class="d-flex justify-content-center"><a class="p-1 mr-3 d-inline-block text-white" href="/routes-rendering/renderhtml/" title="Render Variables in HTML"><i class="fas fa-chevron-left p-1"></i>Render Variables in HTML</a>
+        <a class="p-1 ml-3 d-inline-block text-white text-right" href="/contributing/" title="How to Contribute">How to Contribute<i class="fas fa-chevron-right p-1"></i></a>
     </div>
 </div>
 
