@@ -41,4 +41,3 @@ Magicweb supports routes with parameters. The syntax is the same as before, but 
 def hello(request, response, name):
     response.text = f"Hello {name}"
 ```
-

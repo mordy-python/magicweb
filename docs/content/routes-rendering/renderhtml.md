@@ -1,6 +1,7 @@
 ---
 title: "Render Variables in HTML"
 date: 2021-09-03T13:09:39-04:00
+weight: 3
 draft: false
 ---
 
