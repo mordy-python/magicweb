@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
-
+from magicweb import __version__
 with open('README.md') as readme_file:
     README = readme_file.read()
 
 setup_args = dict(
     name='Magicweb',
-    version='1.0.4',
+    version=__version__,
     description='A simple web framework',
     long_description_content_type="text/markdown",
     long_description=README,
@@ -15,7 +15,8 @@ setup_args = dict(
     author_email='imky171@gmail.com',
     keywords=['Web', 'Web framework', 'framework'],
     url='https://github.com/mordy-python/magicweb',
-    download_url='https://pypi.org/project/magicweb/'
+    download_url='https://pypi.org/project/magicweb/',
+    documentation="https://magicweb-docs.web.app"
 )
 
 install_requires = ['parse', 'webob', 'waitress', 'jinja2']

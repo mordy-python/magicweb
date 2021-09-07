@@ -1,4 +1,5 @@
 from .routes import *
-__version__ = '1.0.4'
 
-__all__ = ['routes']
+__version__ = '2.0.1'
+
+__all__ = ['Magicweb']

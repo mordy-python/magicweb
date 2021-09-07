@@ -23,14 +23,14 @@ we need to add the \_\_file\_\_ variable to the app instance.
 
 ```python
 import magicweb
-app = magicweb.App(__file__)
+app = magicweb.Magicweb(__file__)
 ```
 
 Once our app is instantiated we can add routes
 
 ```python
 import magicweb
-app = magicweb.App(__file__)
+app = magicweb.Magicweb(__file__)
 
 @app.route('/')
 def index(request, response):
@@ -55,7 +55,7 @@ We can also create routes with parameters
 
 ```python
 import magicweb
-app = magicweb.App(__file__)
+app = magicweb.Magicweb(__file__)
 
 @app.route('/{name}')
 def index(request, response, name):
