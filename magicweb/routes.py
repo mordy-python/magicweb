@@ -1,6 +1,6 @@
 from parse import parse
-from jinja2 import Template, Environment, FileSystemLoader
-import os, sys
+from jinja2 import Environment, FileSystemLoader
+import os
 from webob import Request, Response
 
 
@@ -11,17 +11,20 @@ def run(app, host='0.0.0.0', port=5000):
 	print("Killing server")
 
 
-class App:
+class Magicweb:
 	def __init__(self, file, frontend_folder="templates"):
-		# file = file.replace('\\', '/')
 		folder = os.path.dirname(file)
 		if frontend_folder in os.listdir('.'):
 			pass
 		else:
 			os.chdir(folder)
 		self.routes = {}
+		self.session = []
 		self.html = frontend_folder
 		self.env = Environment(loader=FileSystemLoader(self.html))
+	def set_cookie(self, resp, name, val):
+		resp.set_cookie(name, val)
+		self.session.append((name, val))
 	def render(self, html_file, response, **kwargs):
 		try:
 			template = self.env.get_template(html_file)
