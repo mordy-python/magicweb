@@ -8,9 +8,9 @@ weight: 1
 Lets start by creating the same basic app as before.
 
 ```python
-from magicweb import App, run
+from magicweb import Magicweb, run
 
-app = App(__file__)
+app = Magicweb(__file__)
 ```
 
 Now we can create a route.

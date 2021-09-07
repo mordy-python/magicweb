@@ -18,8 +18,8 @@ Now let's install the magicweb package with the following command: `pip install 
 Now lets import App from magicweb and create a new application.
 
 ```python
-from magicweb import App
-app = App(__file__)
+from magicweb import Magicweb
+app = Magicweb(__file__)
 ```
 
 What we did here is create a new App object. The first argument is the path to the current file. This is used to find the templates and static files.
@@ -28,7 +28,7 @@ What we did here is create a new App object. The first argument is the path to t
 
 ```python
 ...
-app = App(__file__, template_folder='templates2')
+app = Magicweb(__file__, template_folder='templates2')
 ```
 
 ### Run the application

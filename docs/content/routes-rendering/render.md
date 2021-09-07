@@ -8,9 +8,9 @@ draft: false
 To render a template, you can use the `render` method of your app instance. Lets create a basic application and render a template.
 
 ```python
-from magicweb import App, run
+from magicweb import Magicweb, run
 
-app = App(__file__)
+app = Magicweb(__file__)
 
 @app.route('/')
 def index(request, response):

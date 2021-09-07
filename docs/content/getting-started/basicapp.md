@@ -8,9 +8,9 @@ draft: false
 Once we have Magicweb installed, we can create an app.
 
 ```python
-from magicweb import App
+from magicweb import Magicweb
 
-app = App(__file__)
+app = Magicweb(__file__)
 ```
 
 We need to put the `__file__` argument in the constructor so that Magicweb knows where to look for templates. Once we have an app, we can add routes.
