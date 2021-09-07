@@ -4,4 +4,6 @@ env/
 wslenv/
 build
 testing
+login-system/*
+login-system
 magicweb/__pycache__/
