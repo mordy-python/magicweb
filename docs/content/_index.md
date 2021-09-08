@@ -10,8 +10,5 @@ Magicweb is a python microframework for building web applications. It has a flas
 * **Templating** - The templating system uses jinja2 for the backend.
 * **Route Parameters** - The route parameters are passed to the view function as keyword arguments.
 * **Template Inheritance** - The templating system supports template inheritance.
-
-Add support for the following features:
-
-* **Session** - The session system is currently not implemented.
-* **Request** - The request object is currently not implemented.
+* **Cookies** - Cookies are live as of release v2.0.3.
+* **Request** - request.POST is now available to get form and other POST data as of release v2.0.3.
