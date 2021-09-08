@@ -1,9 +1,0 @@
-baseURL = "https://magicweb-docs.web.app/"
-languageCode = "en-us"
-title = "Magicweb Documentation"
-theme = "ace"
-
-[[menu.shortcuts]]
-name = "<i class='fab fa-github'></i>"
-url = "https://github.com/mordy-python/magicweb"
-weight = 10
