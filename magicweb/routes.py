@@ -1,7 +1,8 @@
 from parse import parse
 from jinja2 import Environment, FileSystemLoader
 import os
-from webob import Request, Response
+from datetime import timedelta
+from webob import Request, Response, cookies
 
 
 def run(app, host='0.0.0.0', port=5000):
@@ -19,12 +20,12 @@ class Magicweb:
 		else:
 			os.chdir(folder)
 		self.routes = {}
-		self.session = []
 		self.html = frontend_folder
 		self.env = Environment(loader=FileSystemLoader(self.html))
-	def set_cookie(self, resp, name, val):
-		resp.set_cookie(name, val)
-		self.session.append((name, val))
+	def set_cookie(self, name, val, resp, max_age=timedelta(days=2), **kwargs):
+		resp.set_cookie(name, val, max_age=max_age, **kwargs)
+	def delete_cookie(self, name, resp):
+		resp.delete_cookie(name)
 	def render(self, html_file, response, **kwargs):
 		try:
 			template = self.env.get_template(html_file)
