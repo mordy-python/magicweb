@@ -2,7 +2,7 @@ from parse import parse
 from jinja2 import Environment, FileSystemLoader
 import os
 from datetime import timedelta
-from webob import Request, Response, cookies
+from webob import Request, Response
 
 
 def run(app, host='0.0.0.0', port=5000):
