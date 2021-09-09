@@ -1,5 +1,8 @@
 # Magicweb
-Magicweb is a simple web framework that is still under developement. It currently supports route parameters and html templating but not template ineritance.
+
+Magicweb is a simple web framework that is still under developement. It has a simple API to allow you to create your own web application quickly and easily.
+
+view the [documentation](https://magicweb-docs.web.app/).
 
 ## Usage
 
@@ -37,7 +40,7 @@ def index(request, response):
   response.text = "Hello"
 @app.route('/rendered')
 def rendered(request, response):
-  app.render('index.html')
+  app.render('index.html', response)
 ```
 
 We created two routes, one that returns hello world, and one that renders an html page. All html pages should be in a directory named html, although this can be overrdden when instantiting the App class.
